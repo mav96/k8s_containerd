@@ -90,12 +90,12 @@ kind: ClusterConfiguration
 kubernetesVersion: stable
 apiServer:
   certSANs:
-  - "LOAD_BALANCER_DNS"
-controlPlaneEndpoint: "LOAD_BALANCER_DNS:LOAD_BALANCER_PORT"
+  - "LOAD_BALANCER_DNS_OR_IP"
+controlPlaneEndpoint: "LOAD_BALANCER_DNS_OR_IP:LOAD_BALANCER_PORT"
 etcd:
     external:
         endpoints:
-        - http://ETCD_IP:2379
+        - http://ETCD_DNS_OR_IP:2379
 networking:
   serviceSubnet: 10.96.0.0/12
   podSubnet: 10.32.0.0/12
