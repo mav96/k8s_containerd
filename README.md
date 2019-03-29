@@ -46,6 +46,7 @@ WantedBy=multi-user.target
 
 Reload systemd service and start etcd on Ubuntu 18,04 / Ubuntu 16,04
 ```
+sudo systemctl daemon-reload
 sudo systemctl enable etcd.service
 sudo systemctl start etcd.service
 sudo systemctl status etcd.service
