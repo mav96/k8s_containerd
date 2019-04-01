@@ -70,10 +70,11 @@ sudo systemctl start containerd
 **3. Installing k8s**
 
 [kubeadm](https://kubernetes.io/docs/setup/independent/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl)
+[Add CRI container log rotation](https://github.com/kubernetes/kubernetes/pull/59898)
 
-Add/etc/default/kubelet
+Add /etc/default/kubelet
 ```
-KUBELET_EXTRA_ARGS="--cgroup-driver=systemd --container-runtime=remote --runtime-request-timeout=15m --container-runtime-endpoint=unix:///run/containerd/containerd.sock"
+KUBELET_EXTRA_ARGS="--cgroup-driver=systemd --container-runtime=remote --runtime-request-timeout=15m --container-runtime-endpoint=unix:///run/containerd/containerd.sock --container-log-max-size=10Mi --container-log-max-files=3"
 
 sudo systemctl enable kubelet
 sudo systemctl restart kubelet
